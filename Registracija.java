@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Registracija {
+public static void Registracija {
     private static ArrayList<String> Dalibnieki = new ArrayList<>();
 
     public static void user(String[] args)throws Exception {
