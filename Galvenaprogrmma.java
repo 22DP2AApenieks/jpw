@@ -1,7 +1,10 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
 public class Galvenaprogrmma {
     public static void Ieiešana(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<String> Dalibnieki = new ArrayList<>()
+        Scanner reader = new Scanner(System.in);
+        ArrayList<String> Dalibnieki = new ArrayList<>();
 
         while (true) {
             System.out.println("Izvēlieties darbību:");
@@ -12,13 +15,12 @@ public class Galvenaprogrmma {
 
             int izvele = Integer.valueOf(reader.nextLine());
             if (izvele == 1){
-                Registracija();
+                Registracija.registracija();
             } else if (izvele == 2){
-                Ieiešana();
+                Ieiesana.ieiesanasMetode();
             } else {
-                brake;
+                break;
             }
-            
         }
     }
 }
