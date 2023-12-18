@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Galvenaprogrmma {
-    public static void Ieiešana(String[] args) {
+    public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         ArrayList<String> Dalibnieki = new ArrayList<>();
 
