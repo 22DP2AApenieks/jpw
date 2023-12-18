@@ -6,31 +6,31 @@ import java.io.IOException;
 public class Registracija {
     private static ArrayList<String> Dalibnieki = new ArrayList<>();
 
-    public static void user(String[] args)throws Exception {
-        try {
-            Scanner scanner = new Scanner(System.in);
+    // public static void user(String[] args)throws Exception {
+    //     try {
+    //         Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Ievadiet vārdu: ");
-            String name = scanner.nextLine();
+    //         System.out.print("Ievadiet vārdu: ");
+    //         String name = scanner.nextLine();
 
-            System.out.print("Ievadiet uzvārdu: ");
-            String surname = scanner.nextLine();
+    //         System.out.print("Ievadiet uzvārdu: ");
+    //         String surname = scanner.nextLine();
 
-            System.out.print("Ievadiet pievilkšanās reižu rekordu: ");
-            String pullups = scanner.nextLine();
+    //         System.out.print("Ievadiet pievilkšanās reižu rekordu: ");
+    //         String pullups = scanner.nextLine();
 
-            System.out.print("Ievadiet piepumpēšanās reižu rekordu: ");
-            String pushups = scanner.nextLine();
+    //         System.out.print("Ievadiet piepumpēšanās reižu rekordu: ");
+    //         String pushups = scanner.nextLine();
 
 
-            String studentInfo = name + "," + surname + "," + pullups + "," + pushups;
-            studentList.add(studentInfo);
+    //         String studentInfo = name + "," + surname + "," + pullups + "," + pushups;
+    //         studentList.add(studentInfo);
 
-            saveToCSV("Dalibnieki.csv", Dalibnieki);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+    //         saveToCSV("Dalibnieki.csv", Dalibnieki);
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
     private static void saveToCSV(String fileName, ArrayList<String> dataList) {
         try {
@@ -55,7 +55,7 @@ public class Registracija {
     }
 }
 
-class Dalibnieks {
+class Dalibnieki {
     public String name;
     public String surname;
     public int pullups;
