@@ -5,7 +5,6 @@ import java.io.IOException;
 
 public class Registracija {
     private static ArrayList<String> Dalibnieki = new ArrayList<>();
-
     public static void user(String[] args)throws Exception {
         try {
             Scanner scanner = new Scanner(System.in);
@@ -24,7 +23,7 @@ public class Registracija {
 
 
             String studentInfo = name + "," + surname + "," + pullups + "," + pushups;
-            studentList.add(studentInfo);
+            Dalibnieki.add(studentInfo);
 
             saveToCSV("Dalibnieki.csv", Dalibnieki);
         } catch (Exception e) {
@@ -61,7 +60,7 @@ class Dalibnieks {
     public int pullups;
     public int pushups;
 
-    public Dalibnieki(String name, String surname, int pullups, int pushups) {
+    public Dalibnieks(String name, String surname, int pullups, int pushups) {
         this.name = name;
         this.surname = surname;
         this.pullups = pullups;
