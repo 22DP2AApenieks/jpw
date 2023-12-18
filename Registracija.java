@@ -6,9 +6,6 @@ import java.io.IOException;
 public class Registracija {
     private static ArrayList<String> Dalibnieki = new ArrayList<>();
 
-    // public static void user(String[] args)throws Exception {
-    //     try {
-    //         Scanner scanner = new Scanner(System.in);
 
     //         System.out.print("Ievadiet vārdu: ");
     //         String name = scanner.nextLine();
@@ -23,8 +20,13 @@ public class Registracija {
     //         String pushups = scanner.nextLine();
 
 
-    //         String studentInfo = name + "," + surname + "," + pullups + "," + pushups;
-    //         studentList.add(studentInfo);
+// <<<<<<< main
+//     //         String studentInfo = name + "," + surname + "," + pullups + "," + pushups;
+//     //         studentList.add(studentInfo);
+// =======
+//             String studentInfo = name + "," + surname + "," + pullups + "," + pushups;
+//             Dalibnieki.add(studentInfo);
+// >>>>>>> main
 
     //         saveToCSV("Dalibnieki.csv", Dalibnieki);
     //     } catch (Exception e) {
@@ -61,7 +63,7 @@ class Dalibnieki {
     public int pullups;
     public int pushups;
 
-    public Dalibnieki(String name, String surname, int pullups, int pushups) {
+    public Dalibnieks(String name, String surname, int pullups, int pushups) {
         this.name = name;
         this.surname = surname;
         this.pullups = pullups;
