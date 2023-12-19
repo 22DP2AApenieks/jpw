@@ -6,53 +6,56 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ieiesana {
-    public static void main(String[] args) {
+    public static void ieiesanasMetode() {
         programma();
     }
 
     public static void programma() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ievadi vārdu:");
+        System.out.println("Ievadi vārdu un uzvārdu:");
 
         System.out.println("Vārds:");
         String nameToCheck = scanner.nextLine();
 
-        String csvFile = "Dalibnieki.csv";  //noradu failu
+        System.out.println("Uzvārds:");
+        String surnameToCheck = scanner.nextLine();
+
+        String csvFile = "Dalibnieki.csv";  
 
         try {
-            List<String> names = readNamesFromCsvFile(csvFile);
+            List<String> mekletajs = readDataFromCsvFile(csvFile);
 
-            if (containsName(names, nameToCheck)) {
-                System.out.println("Tagad ievadi uzvārdu");
+            if (containsData(mekletajs, nameToCheck, surnameToCheck)) {
+                System.out.println("Tu esi iekšā!");
             } else {
-                System.out.println("Nav. JA neesi reģistrēts izej un izveido profilu");
+                System.out.println("Nepareizi ievadīts vārds vai uzvārds");
             }
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            scanner.close(); // Close the scanner to avoid resource leak
+            scanner.close();
         }
     }
 
-    private static List<String> readNamesFromCsvFile(String csvFile) throws IOException {
-        List<String> names = new ArrayList<>();
+    private static List<String> readDataFromCsvFile(String csvFile) throws IOException {
+        List<String> records = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(",");
-                // Assuming the CSV has a structure like "Name, Age, ...", adjust as needed
-                String name = fields[0].trim();
-                names.add(name);
+                records.add(line);
             }
         }
 
-        return names;
+        return records;
     }
 
-    private static boolean containsName(List<String> names, String searchName) {
-        for (String name : names) {
-            if (name.equalsIgnoreCase(searchName)) {
+    private static boolean containsData(List<String> records, String searchName, String searchSurname) {
+        for (String record : records) {
+            String[] fields = record.split(",");
+            String name = fields[0].trim();
+            String surname = fields[1].trim();
+            if (name.equalsIgnoreCase(searchName) && surname.equalsIgnoreCase(searchSurname)) {
                 return true;
             }
         }

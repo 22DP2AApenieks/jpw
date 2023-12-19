@@ -16,7 +16,7 @@ public class MainClass {
 
         int izvele = Integer.valueOf(scanner.nextLine());
         if (izvele == 1){
-            Registracija.registracijaMetode();
+            Registracija.registracija();
         } else if (izvele == 2){
             Ieiesana.ieiesanasMetode();
         } else {
