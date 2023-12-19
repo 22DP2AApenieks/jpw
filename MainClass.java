@@ -18,7 +18,7 @@ public class MainClass {
         if (izvele == 1){
             Registracija.registracija();
         } else if (izvele == 2){
-            Ieiesana.ieiesanasMetode();
+            Ieiesana.ieiesana();
         } else {
             System.exit(0);
         }

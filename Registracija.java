@@ -7,7 +7,7 @@ import java.io.IOException;
 public class Registracija {
     private static ArrayList<String> Dalibniekussaraksts = new ArrayList<>();
 
-    public static void registracijaMetode(){
+    public static void registracija(){
         try {
             Scanner scanner = new Scanner(System.in);
         //uztaisu skeneri
@@ -55,7 +55,7 @@ public class Registracija {
     }
     
 
-    public static void registracija() {
+    public static void registracijaMetode() {
         
     }
 }
