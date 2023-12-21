@@ -16,8 +16,38 @@ public class Programma {
             String lineWithUser = findLineWithUser(csvFile, indekss);
             if (lineWithUser != null) {
                 System.out.println("Lietotāja profils\n" + "Vārds, uzvārds, pievilkšanās rekkords, piepumpēšanās rekords\n" + lineWithUser);
+                
+                // Split the string using commas
+                String[] values = lineWithUser.split(",");
+                System.out.println("Ievadi pievilkšanās reižu skaitu: ");
+                int pullups = Integer.valueOf(scanner.nextLine());
+
+                // Check if there are at least four values in the array
+                if (values.length >= 4) {
+                    // Extract the value between the third and fourth comma
+                    String valueToParse = values[2].trim(); // Trim to remove leading/trailing spaces
+
+                    // Validate if the valueToParse is a valid integer
+                    try {
+                        int result = Integer.parseInt(valueToParse);
+
+                        // Compare pullups with the extracted value
+                        if (pullups == result) {
+                            System.out.println("Atkārtots rekords!");
+                        } else if (pullups > result) {
+                            System.out.println("Jauns personīgais rekords " + pullups + " pievilkšanās reižu! \nApsveicu!");
+                        } else {
+                            System.out.println("Nav jauns rekords!");
+                        }
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid format for the value between the third and fourth comma.");
+                    }
+                } else {
+                    System.out.println("Not enough values in the variable.");
+                }
             } else {
-                System.out.println("Lietotājs Neeksistē!");
+                System.out.println("Nepareizs numurs");
+                return;
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -61,14 +61,14 @@ public class Registracija {
                 lineCount++;
                 String[] fields = line.split(",");
 
-                // Assuming there are 4 fields in each line
+               
                 if (fields.length == 4 && fields[0].trim().equals(name) && fields[1].trim().equals(surname)) {
                     System.out.println("Tavs iegāji savā kontā! \n" + line);
                     return new LineAndUserDetails(line, lineCount);
                 }
             }
         }
-        return null; // User not found in the CSV file
+        return null; // ja neatrod lietotaju csv
     }
 
     private static void saveToCSV(String fileName, ArrayList<String> dataList) {
