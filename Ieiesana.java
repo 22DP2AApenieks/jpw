@@ -18,15 +18,17 @@ public class Ieiesana {
             try {
                 String lineWithUser = findLineWithUser(csvFile, name, surname);
                 if (lineWithUser != null) {
-                    System.out.println("Lietotāja profils\n" + "Vārds, uzvārds, pievilkšanās rekkords, piepumpēšanās rekords\n" + lineWithUser);
+     
                 } else {
                     System.out.println("Lietotājs '" + name + " " + surname + " Neeksistē!");
+                    return;
                 }
+                Programma.programma();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } finally {
-            // Close the scanner in a finally block to avoid resource leaks
+            
 
         }
     }
@@ -40,9 +42,12 @@ public class Ieiesana {
                 lineCount++;
                 String[] fields = line.split(",");
 
+
                 // Assuming there are 4 commas in each line
                 if (fields.length == 4 && fields[0].trim().equals(name) && fields[1].trim().equals(surname)) {
+                    System.out.println("Tavs iegāji savā kontā! \n" + lineCount );
                     return line; // Line where both name and surname are found
+                    
                 }
             }
         }

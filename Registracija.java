@@ -1,16 +1,17 @@
-
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-//šis fails atvērsies ja lietotāja izvēle būs 1-reģistrēties
+
 public class Registracija {
     private static ArrayList<String> Dalibniekussaraksts = new ArrayList<>();
 
-    public static void registracija(){
+    public static void registracija() {
         try {
             Scanner scanner = new Scanner(System.in);
-        //uztaisu skeneri
+
             System.out.print("Ievadiet vārdu: ");
             String name = scanner.nextLine();
 
@@ -22,25 +23,59 @@ public class Registracija {
 
             System.out.print("Ievadiet piepumpēšanās reižu rekordu: ");
             String pushups = scanner.nextLine();
-            //saglabāju dažādu informāciju par lietotāju
-
 
             String Dalibnieki = name + "," + surname + "," + pullups + "," + pushups;
             Dalibniekussaraksts.add(Dalibnieki);
-            //apkiopo ievadītos datus
 
-            //sakas datu saglabāšana csv faila
+            // Save new user information to CSV file
             saveToCSV("Dalibnieki.csv", Dalibniekussaraksts);
-        } catch (Exception e) {
-            e.printStackTrace();
+
+            // Check if the user exists in the CSV file after saving
+            String csvFile = "Dalibnieki.csv";
+            try {
+                LineAndUserDetails result = findLineWithUser(csvFile, name, surname);
+                if (result != null) {
+                    System.out.println("Tavs iegāji savā kontā!");
+                    System.out.println("Lietotājs atrodas rindā: " + result.lineNumber);
+                } else {
+                    System.out.println("Lietotājs '" + name + " " + surname + "' Neeksistē!");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            // Continue with the main program
+            Programma.programma();
+
+        } finally {
+            // Any cleanup code can go here
         }
+    }
+
+    private static LineAndUserDetails findLineWithUser(String csvFile, String name, String surname) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(csvFile))) {
+            String line;
+            int lineCount = 0;
+
+            while ((line = reader.readLine()) != null) {
+                lineCount++;
+                String[] fields = line.split(",");
+
+                // Assuming there are 4 fields in each line
+                if (fields.length == 4 && fields[0].trim().equals(name) && fields[1].trim().equals(surname)) {
+                    System.out.println("Tavs iegāji savā kontā! \n" + line);
+                    return new LineAndUserDetails(line, lineCount);
+                }
+            }
+        }
+        return null; // User not found in the CSV file
     }
 
     private static void saveToCSV(String fileName, ArrayList<String> dataList) {
         try {
-            FileWriter csvWriter = new FileWriter(fileName, true); 
+            FileWriter csvWriter = new FileWriter(fileName, true);
 
-            for (String data : Dalibniekussaraksts) {
+            for (String data : dataList) {
                 csvWriter.append(data);
                 csvWriter.append("\n");
             }
@@ -53,23 +88,19 @@ public class Registracija {
             e.printStackTrace();
         }
     }
-    
 
     public static void registracijaMetode() {
-        
+        // Any additional registration logic can go here
     }
-}
 
-class Dalibnieks {
-    public String name;
-    public String surname;
-    public int pullups;
-    public int pushups;
+    // Helper class to hold line details
+    private static class LineAndUserDetails {
+        String line;
+        int lineNumber;
 
-    public Dalibnieks(String name, String surname, int pullups, int pushups) {
-        this.name = name;
-        this.surname = surname;
-        this.pullups = pullups;
-        this.pushups = pushups;
+        LineAndUserDetails(String line, int lineNumber) {
+            this.line = line;
+            this.lineNumber = lineNumber;
+        }
     }
 }
