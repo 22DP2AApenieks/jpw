@@ -35,8 +35,7 @@ public class Registracija {
             try {
                 LineAndUserDetails result = findLineWithUser(csvFile, name, surname);
                 if (result != null) {
-                    System.out.println("Tavs iegāji savā kontā!");
-                    System.out.println("Lietotājs atrodas rindā: " + result.lineNumber);
+                    System.out.println( result.lineNumber);
                 } else {
                     System.out.println("Lietotājs '" + name + " " + surname + "' Neeksistē!");
                 }
@@ -63,7 +62,6 @@ public class Registracija {
 
                
                 if (fields.length == 4 && fields[0].trim().equals(name) && fields[1].trim().equals(surname)) {
-                    System.out.println("Tavs iegāji savā kontā! \n" + line);
                     return new LineAndUserDetails(line, lineCount);
                 }
             }

@@ -45,7 +45,7 @@ public class Ieiesana {
 
                 // Assuming there are 4 commas in each line
                 if (fields.length == 4 && fields[0].trim().equals(name) && fields[1].trim().equals(surname)) {
-                    System.out.println("Tavs iegāji savā kontā! \n" + lineCount );
+                    System.out.println("Tu iegāji savā kontā! \n" + lineCount );
                     return line; // Line where both name and surname are found
                     
                 }
