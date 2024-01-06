@@ -12,7 +12,7 @@ public class Registracija {
         try {
             Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Ievadiet vārdu: ");
+            System.out.print("\u001b[33mIevadiet vārdu: ");
             String name = scanner.nextLine();
 
             System.out.print("Ievadiet uzvārdu: ");
@@ -37,7 +37,7 @@ public class Registracija {
                 if (result != null) {
                     System.out.println( result.lineNumber);
                 } else {
-                    System.out.println("Lietotājs '" + name + " " + surname + "' Neeksistē!");
+                    System.out.println("\u001b[41mLietotājs '" + name + " " + surname + "' Neeksistē!\u001b[0m");
                 }
             } catch (IOException e) {
                 e.printStackTrace();

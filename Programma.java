@@ -14,7 +14,7 @@ public class Programma {
             String lineWithUser = findLineWithUser(csvFile, indekss);
             if (lineWithUser != null) {
                 // Display user profile header
-                System.out.println("Lietotāja profils\nVārds, uzvārds, pievilkšanās rekkords, piepumpēšanās rekords\n" + lineWithUser);
+                System.out.println("\u001b[43mLietotāja profils\nVārds, uzvārds, pievilkšanās rekkords, piepumpēšanās rekords\n\u001b[0m" + lineWithUser );
 
                 // Split the string using commas
                 String[] values = lineWithUser.split(",");
@@ -34,9 +34,9 @@ public class Programma {
                         if (pullups == pullupResult) {
                             System.out.println("Atkārtots pievilkšanās rekords!");
                         } else if (pullups > pullupResult) {
-                            System.out.println("Jauns personīgais pievilkšanās rekords " + pullups + " reizes! \nApsveicu!");
+                            System.out.println("\u001b[42mJauns personīgais pievilkšanās rekords " + pullups + " reizes! \nApsveicu! \u001b[0m");
                         } else {
-                            System.out.println("Nav jauns pievilkšanās rekords!");
+                            System.out.println("\u001b[41mNav jauns pievilkšanās rekords! \u001b[0m");
                         }
 
                         // Now, check push-ups
@@ -54,9 +54,9 @@ public class Programma {
                             if (pushups == pushupResult) {
                                 System.out.println("Atkārtots piepumpēšanās rekords!");
                             } else if (pushups > pushupResult) {
-                                System.out.println("Jauns personīgais piepumpēšanās rekords " + pushups + " reizes! \nApsveicu!");
+                                System.out.println("\u001b[42mJauns personīgais piepumpēšanās rekords " + pushups + " reizes! \nApsveicu!\u001b[0m");
                             } else {
-                                System.out.println("Nav jauns piepumpēšanās rekords!");
+                                System.out.println("\u001b[41mNav jauns piepumpēšanās rekords!\u001b[0m");
                             }
                         } catch (NumberFormatException e) {
                             System.out.println("Kļūda");

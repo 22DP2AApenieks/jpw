@@ -9,7 +9,7 @@ public class Ieiesana {
         try {
             Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Ievadiet vārdu: ");
+            System.out.print("\u001b[34mIevadiet vārdu: ");
             String name = scanner.nextLine();
 
             System.out.print("Ievadiet uzvārdu: ");
@@ -20,7 +20,7 @@ public class Ieiesana {
                 if (lineWithUser != null) {
      
                 } else {
-                    System.out.println("Lietotājs '" + name + " " + surname + " Neeksistē!");
+                    System.out.println("\u001b[31mLietotājs " + name + " " + surname + " Neeksistē!");
                     return;
                 }
                 Programma.programma();
@@ -45,7 +45,7 @@ public class Ieiesana {
 
                 // Assuming there are 4 commas in each line
                 if (fields.length == 4 && fields[0].trim().equals(name) && fields[1].trim().equals(surname)) {
-                    System.out.println("Tu iegāji savā kontā! \n" + lineCount );
+                    System.out.println("\u001b[42mTu iegāji savā kontā! \n\u001b[0m" + lineCount );
                     return line; // Line where both name and surname are found
                     
                 }

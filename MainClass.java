@@ -6,10 +6,10 @@ public class MainClass {
 
 
         //printē informāciju lietotājam, lai tas spētu lietot programmu
-        System.out.println("Izvēlieties darbību:");
-        System.out.println("1. Reģistrēt lietotāju");
-        System.out.println("2. Ieiet litotāja profilā");
-        System.out.println("3. Iziet");
+        System.out.println("\u001b[30m Izvēlieties darbību:");
+        System.out.println("\u001b[33m1. Reģistrēt lietotāju");
+        System.out.println("\u001b[34m2. Ieiet litotāja profilā");
+        System.out.println("\u001b[35m3. Iziet");
         Scanner scanner = new Scanner(System.in);
         //izveidojam skeneri
 
