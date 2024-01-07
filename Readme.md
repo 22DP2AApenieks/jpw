@@ -8,3 +8,6 @@ Why you should use this app?
 - You can compere your results with others app users(they are anonymous)
 
 App was made by Ādams Apšenieks
+
+Update!
+We will make app that contains these previos task + let you shere your phisique(3 photos from diferent angle) and rate it 1-10 for every body part(biceps, back, legs, abs, shoulders e.c.)
